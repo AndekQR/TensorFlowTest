@@ -24,8 +24,8 @@ def cli():
 def train_model():
     """Rozpoczynanie trenowania modelu"""
     tensor_flow_utils = TensorFlowUtils(DataLoader(configuration.get_data_path()))
-    model = tensor_flow_utils.prepareModel()
-    tensor_flow_utils.train_model(model, configuration.get_epochs())
+    model = tensor_flow_utils.prepareModel(learning_rate=configuration.get_learning_rate())
+    tensor_flow_utils.train_model(model, configuration.get_epochs(), configuration.get_batch_size())
 
 
 @cli.command()
@@ -36,15 +36,23 @@ def accuracy_plot():
 
 
 @cli.command()
+def lose_plot():
+    drawing = Drawing()
+    drawing.draw_loss_plot()
+
+
+@cli.command()
 def predict():
+    """Predykcja klasy na podstawie danych wejściowych w pliku test_data.csv"""
     data_loader = DataLoader(configuration.get_test_data_path(), False)
     tensor_flow_utils = TensorFlowUtils(data_loader)
-    model = tensor_flow_utils.prepareModel()
+    model = tensor_flow_utils.prepareModel(learning_rate=configuration.get_learning_rate())
     tensor_flow_utils.load_saved_weights(model)
     predicted_data = tensor_flow_utils.predict(model)
-    mapped_predicted_data = np.array(list(map(lambda x: [data_loader.class_names[0] + ": " + get_percentage(x[0]) + " "+
-                                                         data_loader.class_names[1] + ": " + get_percentage(x[1])],
-                                              predicted_data)))
+    mapped_predicted_data = np.array(
+        list(map(lambda x: [data_loader.class_names[0] + ": " + get_percentage(x[0]) + " " +
+                            data_loader.class_names[1] + ": " + get_percentage(x[1])],
+                 predicted_data)))
     data_loader.append_predict_column(configuration.get_test_data_path(), mapped_predicted_data)
 
 

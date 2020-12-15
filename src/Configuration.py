@@ -19,8 +19,11 @@ class Configuration:
         self.config = configparser.ConfigParser()
         self.config['SETTINGS'] = {
             'dataPath': 'D:/weaii/magisterka/semestr2/Analiza i wizualizacja danych/tensorflow_project/grzyby.csv',
+            'testData': 'D:/weaii/magisterka/semestr2/Analiza i wizualizacja danych/tensorflow_project/test_data.csv',
             'epochs': '50',
-            'testData': 'D:/weaii/magisterka/semestr2/Analiza i wizualizacja danych/tensorflow_project/test_data.csv'
+            'batch_size': '32',
+            'learning_rate': '0.001'
+
         }
         with open(self.configuration_file_path, 'w') as configFile:
             self.config.write(configFile)
@@ -33,3 +36,9 @@ class Configuration:
 
     def get_test_data_path(self):
         return self.config['SETTINGS']['testData']
+
+    def get_batch_size(self):
+        return int(self.config['SETTINGS']['batch_size'])
+
+    def get_learning_rate(self):
+        return float(self.config['SETTINGS']['learning_rate'])

@@ -11,7 +11,7 @@ class TensorFlowUtils:
     def __init__(self, data_loader):
         self.dataLoader = data_loader
 
-    def prepareModel(self):
+    def prepareModel(self, learning_rate=0.001):
         number_of_headers = self.dataLoader.get_column_number()
         model = tf.keras.models.Sequential([
             tf.keras.layers.Dense(number_of_headers, input_shape=(number_of_headers,)),
@@ -19,12 +19,12 @@ class TensorFlowUtils:
             tf.keras.layers.Dense(len(self.dataLoader.class_names), activation=tf.keras.activations.softmax)
         ])
 
-        model.compile(optimizer='adam', loss='binary_crossentropy',
+        model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=learning_rate), loss='binary_crossentropy',
                       metrics=['accuracy'])
         model.summary()
         return model
 
-    def train_model(self, model, epochs=50, batch_size=256):
+    def train_model(self, model, epochs=50, batch_size=32):
         # kończenie uczenia gdy strata na zbiorze testowym nie rośnie
         earlyStop = EarlyStopping(monitor='val_loss',
                                   patience=3,
@@ -45,7 +45,10 @@ class TensorFlowUtils:
         return history
 
     def load_saved_weights(self, model):
-        model.load_weights(self.checkpoint_path)
+        try:
+            model.load_weights(self.checkpoint_path)
+        except tf.errors.NotFoundError:
+            self.train_model(model)
 
     def __get_prepared_training_labels(self):
         training_labels = self.dataLoader.get_training_labels()
