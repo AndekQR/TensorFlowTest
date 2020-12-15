@@ -1,8 +1,8 @@
 # wczytanie potrzebnych bibliotek
-import tensorflow as tf
 import matplotlib.pyplot as plt
+import tensorflow as tf
 
-#wczytanie danych 
+# wczytanie danych
 fashion_mnist = tf.keras.datasets.fashion_mnist
 (X_train, y_train), (X_val, y_val) = fashion_mnist.load_data()
 
@@ -37,9 +37,9 @@ print(f'Zbiór uczący: {X_train.shape}, zbiór walidacyjny: {X_val.shape}')
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
-plt.figure(figsize=(14,10))
+plt.figure(figsize=(14, 10))
 for i in range(40):
-    plt.subplot(5, 8, i+1)
+    plt.subplot(5, 8, i + 1)
     plt.xticks([])
     plt.yticks([])
     plt.grid(False)
