@@ -12,7 +12,7 @@ class Drawing:
 
     plt.figure(figsize=(12, 7))
 
-    def draw_accuracy_plot(self, y_limit=(0.8, 1.00)):
+    def draw_accuracy_plot(self, y_limit=(0.5, 1.00)):
         plt.subplot(1, 1, 1)
         plt.plot(self.history['accuracy'], "r--")
         plt.plot(self.history['val_' + 'accuracy'], "g--")

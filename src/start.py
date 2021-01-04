@@ -24,7 +24,8 @@ def cli():
 def train_model():
     """Rozpoczynanie trenowania modelu"""
     tensor_flow_utils = TensorFlowUtils(DataLoader(configuration.get_data_path()))
-    model = tensor_flow_utils.prepareModel(learning_rate=configuration.get_learning_rate())
+    model = tensor_flow_utils.prepare_model(learning_rate=configuration.get_learning_rate(),
+                                            algorithm=configuration.get_algorithm())
     tensor_flow_utils.train_model(model, configuration.get_epochs(), configuration.get_batch_size())
 
 
@@ -46,7 +47,7 @@ def predict():
     """Predykcja klasy na podstawie danych wejściowych w pliku test_data.csv"""
     data_loader = DataLoader(configuration.get_test_data_path(), False)
     tensor_flow_utils = TensorFlowUtils(data_loader)
-    model = tensor_flow_utils.prepareModel(learning_rate=configuration.get_learning_rate())
+    model = tensor_flow_utils.prepare_model(learning_rate=configuration.get_learning_rate())
     tensor_flow_utils.load_saved_weights(model)
     predicted_data = tensor_flow_utils.predict(model)
     mapped_predicted_data = np.array(
