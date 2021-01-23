@@ -17,9 +17,9 @@ class TensorFlowUtils:
         number_of_headers = self.dataLoader.get_column_number()
         model = tf.keras.models.Sequential([
             tf.keras.layers.Dense(number_of_headers, input_shape=(number_of_headers,)),
-            tf.keras.layers.Dense(64, activation=tf.keras.activations.relu),
+            tf.keras.layers.Dense(64, activation=tf.keras.activations.tanh),
             tf.keras.layers.Dropout(0.2),
-            tf.keras.layers.Dense(32, activation=tf.keras.activations.relu),
+            tf.keras.layers.Dense(32, activation=tf.keras.activations.tanh),
             tf.keras.layers.Dense(len(self.dataLoader.class_names), activation=tf.keras.activations.softmax)
         ])
 
@@ -31,11 +31,13 @@ class TensorFlowUtils:
         model.summary()
         return model
 
+    # algorytm sgd wykorzystujący metodą gradientową
     def lovenberg_marquardt_algorithm(self, learning_rate,
                                       model: tf.keras.models.Sequential):
         my_optimizer = tf.keras.optimizers.SGD(learning_rate=learning_rate)
         model.compile(optimizer=my_optimizer, loss='binary_crossentropy', metrics=['accuracy'])
 
+    # metoda spadku gradientu
     def adam_algorithm(self, learning_rate, model: tf.keras.models.Sequential):
         my_optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
         model.compile(optimizer=my_optimizer, loss='binary_crossentropy', metrics=['accuracy'])

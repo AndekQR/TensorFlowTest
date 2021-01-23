@@ -1,13 +1,13 @@
-class;cap-shape;cap-surface;cap-color;bruises;odor;gill-attachment;gill-spacing;gill-size;gill-color;stalk-shape;stalk-root;stalk-surface-above-ring;stalk-surface-below-ring;stalk-color-above-ring;stalk-color-below-ring;veil-type;veil-color;ring-number;ring-type;spore-print-color;population;habitat
-1;4;3;4;2;5;3;1;1;8;1;1;3;3;1;2;1;3;2;4;4;5;4
-1;4;3;10;2;5;3;1;1;8;1;1;3;3;1;2;1;3;2;4;4;6;1
-1;3;1;10;2;5;3;1;1;5;1;1;3;3;2;6;1;3;2;4;4;6;7
-0;5;3;6;1;7;3;1;1;10;1;7;4;4;8;8;1;3;3;2;8;2;6
-0;5;3;2;1;7;3;1;1;10;1;7;4;4;8;7;1;3;3;2;8;2;6
-0;4;3;3;2;7;3;2;2;12;1;1;1;4;8;1;1;3;2;2;8;5;2
-1;3;1;4;2;5;3;1;1;8;1;1;3;3;6;2;1;3;2;4;4;6;1
-1;3;1;4;2;3;3;2;2;2;1;1;4;4;8;8;1;3;2;6;2;5;7
-1;3;1;4;2;5;3;1;1;5;1;1;3;3;6;2;1;3;2;4;4;5;4
-0;4;3;1;1;7;3;1;1;2;2;1;4;4;8;4;1;3;2;6;2;5;7
-0;4;3;8;1;7;3;1;1;2;2;1;4;4;8;6;1;3;2;6;2;5;7
-0;4;3;8;1;7;3;1;1;12;2;1;4;4;6;8;1;3;2;6;1;6;7
+class;cap-shape;cap-surface;cap-color;bruises;odor;gill-attachment;gill-spacing;gill-size;gill-color;stalk-shape;stalk-root;stalk-surface-above-ring;stalk-surface-below-ring;stalk-color-above-ring;stalk-color-below-ring;veil-type;veil-color;ring-number;ring-type;spore-print-color;population;habitat,predicted
+1;4;3;4;2;5;3;1;1;8;1;1;3;3;1;2;1;3;2;4;4;5;4,jadalny: 4% niejadalny: 96%
+1;4;3;10;2;5;3;1;1;8;1;1;3;3;1;2;1;3;2;4;4;6;1,jadalny: 3% niejadalny: 97%
+1;3;1;10;2;5;3;1;1;5;1;1;3;3;2;6;1;3;2;4;4;6;7,jadalny: 10% niejadalny: 90%
+0;5;3;6;1;7;3;1;1;10;1;7;4;4;8;8;1;3;3;2;8;2;6,jadalny: 72% niejadalny: 28%
+0;5;3;2;1;7;3;1;1;10;1;7;4;4;8;7;1;3;3;2;8;2;6,jadalny: 75% niejadalny: 25%
+0;4;3;3;2;7;3;2;2;12;1;1;1;4;8;1;1;3;2;2;8;5;2,jadalny: 2% niejadalny: 98%
+1;3;1;4;2;5;3;1;1;8;1;1;3;3;6;2;1;3;2;4;4;6;1,jadalny: 11% niejadalny: 89%
+1;3;1;4;2;3;3;2;2;2;1;1;4;4;8;8;1;3;2;6;2;5;7,jadalny: 77% niejadalny: 23%
+1;3;1;4;2;5;3;1;1;5;1;1;3;3;6;2;1;3;2;4;4;5;4,jadalny: 14% niejadalny: 86%
+0;4;3;1;1;7;3;1;1;2;2;1;4;4;8;4;1;3;2;6;2;5;7,jadalny: 79% niejadalny: 21%
+0;4;3;8;1;7;3;1;1;2;2;1;4;4;8;6;1;3;2;6;2;5;7,jadalny: 74% niejadalny: 26%
+0;4;3;8;1;7;3;1;1;12;2;1;4;4;6;8;1;3;2;6;1;6;7,jadalny: 89% niejadalny: 11%

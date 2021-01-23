@@ -37,7 +37,7 @@ def accuracy_plot():
 
 
 @cli.command()
-def lose_plot():
+def loss_plot():
     drawing = Drawing()
     drawing.draw_loss_plot()
 
@@ -47,7 +47,8 @@ def predict():
     """Predykcja klasy na podstawie danych wejściowych w pliku test_data.csv"""
     data_loader = DataLoader(configuration.get_test_data_path(), False)
     tensor_flow_utils = TensorFlowUtils(data_loader)
-    model = tensor_flow_utils.prepare_model(learning_rate=configuration.get_learning_rate())
+    model = tensor_flow_utils.prepare_model(learning_rate=configuration.get_learning_rate(),
+                                            algorithm=configuration.get_algorithm())
     tensor_flow_utils.load_saved_weights(model)
     predicted_data = tensor_flow_utils.predict(model)
     mapped_predicted_data = np.array(
